@@ -1,0 +1,11 @@
+{% extends 'tienda/base.html'%}
+
+{% block content%}
+    <form method="POST"> {% csrf_token %}
+
+        {{ form.as_ul }}
+        <input type="submit" name="Send"> 
+
+    </form>
+
+{% endblock content%}
