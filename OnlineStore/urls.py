@@ -18,4 +18,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('new_order/', new_order_view,  name='new_order'),
+    path('order_resume/<int:id>', order_summary_view, name='order_summary'),
+    
 ]
