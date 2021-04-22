@@ -1,0 +1,14 @@
+{% extends 'tienda/base.html' %}
+
+{% block content %}
+
+    <ul>
+        <li>Product: SuperAvocado</li>   
+        <li>Price: 10.000 COP</li> 
+        <li>Client: {{ order.costumer_name }}</li>
+        <li>Email: {{ order.costumer_email }}</li>
+        <li>Cellphone: {{ order.costumer_mobile }}</li>
+    </ul>
+
+    
+{% endblock content %}
