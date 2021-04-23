@@ -67,8 +67,14 @@ def payment_status_view(request, id):
     connection = Connection()
     response = connection.payment_status(order.request_id).json()
     status = response["status"]["status"]
-    order.status = status
-    order.save()
+
+    if status == "APPROVED":
+        order.status = "PAYED"
+        order.save()    
+    elif status == "REJECTED":
+        order.status = "REJECTED"
+        order.save()
+    
 
     context = {"order": order, "status": status, "process_url": order.process_url}
 
