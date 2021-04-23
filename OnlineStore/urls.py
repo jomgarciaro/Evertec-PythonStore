@@ -23,5 +23,6 @@ urlpatterns = [
     path('order_summary/<int:id>', order_summary_view, name='order_summary'),
     path('order_summary/payment/<int:id>', payment, name='summary_payment'),
     path('payment_status/<int:id>', payment_status_view, name='payment_status'),
+    path('payment_status/payment/<int:id>', payment, name='try_new_payment') 
     
 ]
