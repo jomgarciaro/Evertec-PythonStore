@@ -83,6 +83,7 @@ def payment_status_view(request, id):
     return render(request, "Store/payment_status.html", context)
 
 def all_orders_view(request):
+   
     """
     This view shows the set of all created orders.
     """

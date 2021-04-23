@@ -1,0 +1,13 @@
+{% extends 'tienda/base.html' %} 
+
+{% block content %}
+    <ul>
+        
+        {% for order in orders %}
+
+            <li>{{ order.id }} - {{ order.costumer_name }} - {{ order.costumer_email }} - {{ order.costumer_mobile }} - {{ order.status }} - {{ order.request_id }} </li>
+
+        {% endfor %}
+
+    </ul>
+{% endblock content %}
