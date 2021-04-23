@@ -78,8 +78,16 @@ def payment_status_view(request, id):
         order.status = "CREATED"
         order.save()
 
-    
-
     context = {"order": order, "status": status, "process_url": order.process_url}
 
     return render(request, "Store/payment_status.html", context)
+
+def all_orders_view(request):
+    """
+    This view shows the set of all created orders.
+    """
+
+    orders = Order.objects.all()
+    context = {"orders": orders}
+        
+    return render(request, "tienda/all_orders.html", context)
