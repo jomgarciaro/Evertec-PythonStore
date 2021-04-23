@@ -20,6 +20,7 @@ from Store.views import new_order_view, order_summary_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('new_order/', new_order_view,  name='new_order'),
-    path('order_resume/<int:id>', order_summary_view, name='order_summary'),
+    path('order_summary/<int:id>', order_summary_view, name='order_summary'),
+    path('order_summary/payment/<int:id>', payment, name='summary_payment'),
     
 ]
