@@ -1,0 +1,46 @@
+{% extends 'tienda/base.html' %}
+
+{% block content %}
+
+    <ul>
+        <li>Product: SuperAvocado</li>   
+        <li>Price: 10.000 COP</li> 
+        <li>Client: {{ order.costumer_name }}</li>
+        <li>Email: {{ order.costumer_email }}</li>
+        <li>Cellphone: {{ order.costumer_mobile }}</li>
+    </ul>
+    <br>
+
+    {%if status == "PAYED" %}
+
+        <p>The payment is ok</p>
+
+    {% elif status == "CREATED" %}
+
+        <form action="{{ process_url }}" method="GET">
+
+            <P>The payments is pending. </P> <button type="submit">Look Pending Payment</button>
+
+        </form><br>
+
+        <form action="payment/{{order.id}}" method="POST"> 
+            {% csrf_token %}
+
+            <button type="submit">New Payment</button>
+        
+        </form>
+
+    {% else %}
+
+        <form action="payment/{{order.id}}" method="POST"> 
+            {% csrf_token %}
+
+            <p>The payment is rejected. </p><button type="submit">New Payment</button>
+        
+        </form>
+
+    {% endif %}
+
+
+
+{% endblock content%}
