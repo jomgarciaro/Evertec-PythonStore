@@ -74,6 +74,10 @@ def payment_status_view(request, id):
     elif status == "REJECTED":
         order.status = "REJECTED"
         order.save()
+    else:
+        order.status = "CREATED"
+        order.save()
+
     
 
     context = {"order": order, "status": status, "process_url": order.process_url}

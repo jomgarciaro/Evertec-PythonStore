@@ -74,7 +74,7 @@ class Connection:
                 "allowPartial": False,
             },
             "expiration": expiration,
-            "returnUrl": f"http://localhost:8000/order_status/{costumer_id}",
+            "returnUrl": f"http://localhost:8000/payment_status/{costumer_id}",
             "ipAddress": "127.0.0.1",
             "userAgent": "PlacetoPay Sandbox",
         }
