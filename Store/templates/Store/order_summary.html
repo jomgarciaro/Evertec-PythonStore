@@ -10,5 +10,11 @@
         <li>Cellphone: {{ order.costumer_mobile }}</li>
     </ul>
 
+    <form action="payment/{{order.id}}" method="POST"> 
+        {% csrf_token %}
+
+        <button type="submit">Pay</button>
+    
+    </form>
     
 {% endblock content %}
