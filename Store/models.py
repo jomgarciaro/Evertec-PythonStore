@@ -7,4 +7,6 @@ class Order(models.Model):
     status = models.CharField("Status", max_length=20, default="CREATED")
     create_at = models.DateField(auto_now_add=True)
     update_at = models.DateField(auto_now=True)
+    request_id = models.CharField(max_length=40)
+    process_url = models.CharField(max_length=120)
    
