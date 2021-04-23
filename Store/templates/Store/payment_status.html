@@ -8,14 +8,15 @@
         <li>Client: {{ order.costumer_name }}</li>
         <li>Email: {{ order.costumer_email }}</li>
         <li>Cellphone: {{ order.costumer_mobile }}</li>
+        <li>Status: {{ order.status }}</li>
     </ul>
     <br>
 
-    {%if status == "PAYED" %}
+    {% if order.status == "PAYED" %}
 
         <p>The payment is ok</p>
 
-    {% elif status == "CREATED" %}
+    {% elif order.status == "CREATED" %}
 
         <form action="{{ process_url }}" method="GET">
 
