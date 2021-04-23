@@ -40,8 +40,8 @@ def payment(request, id):
 
     """
     This function creates a connection object and uses it to request a payment 
-    session by sending the customer's information to PlaceToPay's Web-checkout service.
-    And save de response data in the order table.
+    session by sending the customer's information to PlaceToPay's Web-checkout 
+    service. And save de response data in the order table.
     """
 
     order = Order.objects.get(id=id)
@@ -55,3 +55,21 @@ def payment(request, id):
     order.save()
 
     return redirect(response["processUrl"])
+
+def payment_status_view(request, id):
+    
+    """
+    The customer is redirected to this view when he/she has tried to pay on 
+    the PlaceToPay site.
+    """
+
+    order = Order.objects.get(id=id)
+    connection = Connection()
+    response = connection.payment_status(order.request_id).json()
+    status = response["status"]["status"]
+    order.status = status
+    order.save()
+
+    context = {"order": order, "status": status, "process_url": order.process_url}
+
+    return render(request, "Store/payment_status.html", context)
