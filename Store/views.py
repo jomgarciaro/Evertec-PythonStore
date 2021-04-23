@@ -91,4 +91,4 @@ def all_orders_view(request):
     orders = Order.objects.all()
     context = {"orders": orders}
         
-    return render(request, "tienda/all_orders.html", context)
+    return render(request, "Store/all_orders.html", context)
