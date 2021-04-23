@@ -17,7 +17,7 @@ def new_order_view(request):
 
     context = {"form": form}
 
-    return render(request, "tienda/new_order.html", context)
+    return render(request, "Store/new_order.html", context)
 
 
 def order_summary_view(request, id):
@@ -30,4 +30,4 @@ def order_summary_view(request, id):
     order = Order.objects.get(id=id)
     context = {"order": order}
 
-    return render(request, "tienda/order_summary.html", context)
+    return render(request, "Store/order_summary.html", context)
