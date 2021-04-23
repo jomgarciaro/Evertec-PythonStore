@@ -5,7 +5,12 @@
         
         {% for order in orders %}
 
-            <li>{{ order.id }} - {{ order.costumer_name }} - {{ order.costumer_email }} - {{ order.costumer_mobile }} - {{ order.status }} - {{ order.request_id }} </li>
+            <li>Id: {{ order.id }}, 
+                Name: {{ order.costumer_name }},
+                Email: {{ order.costumer_email }},
+                Cellphone: {{ order.costumer_mobile }}, 
+                Order Status: {{ order.status }},
+                Order requesId: {{ order.request_id }} </li>
 
         {% endfor %}
 
